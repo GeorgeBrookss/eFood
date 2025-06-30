@@ -5,7 +5,8 @@ import Header from '../../Header/Header'
 import {
   DestaqueStyled,
   NomeDoRestaurante,
-  TemaDoRestaurante
+  TemaDoRestaurante,
+  ContainerStyle
 } from './LaDolce.styles'
 
 const destaques: PratosMold[] = [
@@ -17,28 +18,28 @@ const destaques: PratosMold[] = [
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
   },
   {
-    id: 6,
+    id: 2,
     title: 'Pizza Marguerita',
     image: pizza,
     descricao:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
   },
   {
-    id: 6,
+    id: 3,
     title: 'Pizza Marguerita',
     image: pizza,
     descricao:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
   },
   {
-    id: 6,
+    id: 4,
     title: 'Pizza Marguerita',
     image: pizza,
     descricao:
       'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
   },
   {
-    id: 6,
+    id: 5,
     title: 'Pizza Marguerita',
     image: pizza,
     descricao:
@@ -60,8 +61,10 @@ const LaDolce = () => {
     <>
       <Header />
       <DestaqueStyled>
-        <TemaDoRestaurante>Italiana</TemaDoRestaurante>
-        <NomeDoRestaurante>La Dolce Vita Trattoria</NomeDoRestaurante>
+        <ContainerStyle>
+          <TemaDoRestaurante>Italiana</TemaDoRestaurante>
+          <NomeDoRestaurante>La Dolce Vita Trattoria</NomeDoRestaurante>
+        </ContainerStyle>
       </DestaqueStyled>
       <PratosList pratos={destaques} title="" />
     </>
