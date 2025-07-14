@@ -1,6 +1,7 @@
-import PratosMold from '../../../models/PratosMold'
+import { useNavigate, useParams } from 'react-router-dom'
+import { useEffect, useState } from 'react'
+import ModalProduto from '../../Modal'
 import PratosList from '../../PratosList/Pratos'
-import pizza from '../../../assets/images/pizza.png'
 import Header from '../../Header/Header'
 import {
   DestaqueStyled,
@@ -9,64 +10,74 @@ import {
   ContainerStyle
 } from './LaDolce.styles'
 
-const destaques: PratosMold[] = [
-  {
-    id: 1,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 2,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 3,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 4,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 5,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  },
-  {
-    id: 6,
-    title: 'Pizza Marguerita',
-    image: pizza,
-    descricao:
-      'A clássica Marguerita: molho de tomate suculento, mussarela derretida, manjericão fresco e um toque de azeite. Sabor e simplicidade!'
-  }
-]
+interface Produto {
+  id: number
+  nome: string
+  descricao: string
+  preco: number
+  foto: string
+  porcao: string
+}
+
+interface Restaurante {
+  id: number
+  titulo: string
+  tipo: string
+  cardapio: Produto[]
+}
 
 const LaDolce = () => {
-  console.log('Renderizando ladolce')
+  const { id } = useParams()
+  const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
+  const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
+    null
+  )
 
+  useEffect(() => {
+    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/1')
+      .then((resposta) => resposta.json())
+      .then((dados: Restaurante) => {
+        setRestaurante(dados)
+
+        if (id) {
+          const produto = dados.cardapio.find(
+            (item) => item.id.toString() === id
+          )
+          setProdutoSelecionado(produto || null)
+        } else {
+          setProdutoSelecionado(null)
+        }
+      })
+  }, [id])
+
+  const navigate = useNavigate()
+
+  const abrirModal = (id: number) => {
+    navigate(`/LaDolce/produto/${id}`)
+  }
+  const fecharModal = () => {
+    navigate(`/LaDolce/`)
+  }
   return (
     <>
       <Header />
       <DestaqueStyled>
         <ContainerStyle>
-          <TemaDoRestaurante>Italiana</TemaDoRestaurante>
-          <NomeDoRestaurante>La Dolce Vita Trattoria</NomeDoRestaurante>
+          <TemaDoRestaurante>{restaurante?.tipo}</TemaDoRestaurante>
+          <NomeDoRestaurante>{restaurante?.titulo}</NomeDoRestaurante>
         </ContainerStyle>
       </DestaqueStyled>
-      <PratosList pratos={destaques} title="" />
+
+      {restaurante && (
+        <PratosList
+          pratos={restaurante.cardapio}
+          title=""
+          onPratoClick={abrirModal}
+        />
+      )}
+      {produtoSelecionado && (
+        <ModalProduto onClose={fecharModal} produto={produtoSelecionado} />
+      )}
     </>
   )
 }

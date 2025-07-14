@@ -5,18 +5,20 @@ import PratoProd from '../Prato/Prato'
 export type Props = {
   title: string
   pratos: PratosMold[]
+  onPratoClick?: (id: number) => void
 }
 
-const PratosList = ({ title, pratos }: Props) => (
+const PratosList = ({ title, pratos, onPratoClick }: Props) => (
   <div>
     <TituloPrato>{title}</TituloPrato>
     <PratosListaStyle>
       {pratos.map((prato) => (
         <PratoProd
-          image={prato.image}
+          image={prato.foto}
           descricao={prato.descricao}
-          title={prato.title}
+          title={prato.nome}
           key={prato.id}
+          onClick={() => onPratoClick?.(prato.id)}
         />
       ))}
     </PratosListaStyle>

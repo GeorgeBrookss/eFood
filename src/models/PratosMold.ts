@@ -1,15 +1,8 @@
-class PratosMold {
-  descricao: string
-  image: string
-  title: string
+export default interface PratosMold {
   id: number
-
-  constructor(id: number, title: string, image: string, descricao: string) {
-    this.descricao = descricao
-    this.id = id
-    this.image = image
-    this.title = title
-  }
+  nome: string
+  descricao: string
+  preco: number
+  foto: string
+  porcao: string
 }
-
-export default PratosMold

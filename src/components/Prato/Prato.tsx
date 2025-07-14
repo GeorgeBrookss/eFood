@@ -7,22 +7,29 @@ import {
   PratoItem
 } from './prato.styles'
 
-type Props = {
-  descricao: string
+interface Props {
   image: string
+  descricao: string
   title: string
+  onClick?: () => void
 }
 
-const PratoProd = ({ title, descricao, image }: Props) => (
-  <PratoItem>
+const getDescricao = (descricao: string) => {
+  if (descricao.length > 132) {
+    return descricao.slice(0, 129) + '...'
+  }
+  return descricao
+}
+const PratoProd = ({ title, descricao, image, onClick }: Props) => (
+  <PratoItem onClick={onClick}>
     <img src={image} alt={title} />
     <ItemBorder>
       <TituloPrato>
         <h3>{title}</h3>
         <ItemTitulo></ItemTitulo>
       </TituloPrato>
-      <Descricao>{descricao}</Descricao>
-      <AdicionarBtn>Adicionar ao carrinho</AdicionarBtn>
+      <Descricao>{getDescricao(descricao)}</Descricao>
+      <AdicionarBtn>Mais detalhes</AdicionarBtn>
     </ItemBorder>
   </PratoItem>
 )
