@@ -7,6 +7,11 @@ export const RestauranteItem = styled.li`
   max-width: 472px;
   position: relative;
 `
+export const ImgRestaurante = styled.img`
+  min-width: 472px;
+  object-fit: cover;
+`
+
 export const TituloRestaurante = styled.div`
   display: flex;
   margin-bottom: 16px;

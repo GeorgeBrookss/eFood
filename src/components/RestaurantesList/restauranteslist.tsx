@@ -1,14 +1,14 @@
-import RestauranteMold from '../../models/Restaurante'
+import { RestauranteListItem } from '../Pages/Home/Home'
 import { ListaStyle } from './RestaurantesList.styles'
 import RestauranteProd from '../Restaurante/restaurante'
 import Estrela from '../../assets/images/estrela.png'
 
-export type Props = {
+interface Props {
+  restaurantes: RestauranteListItem[]
   title: string
-  restaurantes: RestauranteMold[]
 }
 
-const RestaurantesList = ({ title, restaurantes }: Props) => (
+const RestaurantesList = ({ restaurantes, title }: Props) => (
   <div>
     <h2>{title}</h2>
     <ListaStyle>

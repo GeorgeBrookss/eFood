@@ -1,5 +1,4 @@
 import Tag from '../../components/Tag/Tag'
-
 import {
   RestauranteItem,
   TituloRestaurante,
@@ -8,10 +7,11 @@ import {
   ItemTitulo,
   ItemBorder,
   Descricao,
-  Infos
+  Infos,
+  ImgRestaurante
 } from './restaurante.styled'
 
-type Props = {
+interface Props {
   nota: number
   descricao: string
   image: string
@@ -27,10 +27,11 @@ const RestauranteProd = ({
   image,
   nota,
   infos,
-  imageNota
+  imageNota,
+  redirecionador
 }: Props) => (
   <RestauranteItem>
-    <img src={image} alt={title} />
+    <ImgRestaurante src={image} alt={title} />
     <Infos>
       {infos.map((info) => (
         <Tag key={info}>{info}</Tag>
@@ -45,7 +46,7 @@ const RestauranteProd = ({
         </ItemTitulo>
       </TituloRestaurante>
       <Descricao>{descricao}</Descricao>
-      <RestauranteButton to="/LaDolce">Saiba Mais</RestauranteButton>
+      <RestauranteButton to={redirecionador}>Saiba Mais</RestauranteButton>
     </ItemBorder>
   </RestauranteItem>
 )

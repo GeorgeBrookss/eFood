@@ -27,36 +27,37 @@ interface Restaurante {
 }
 
 const LaDolce = () => {
-  const { id } = useParams()
+  const { id, idProduto } = useParams()
   const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
   const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
     null
   )
 
   useEffect(() => {
-    fetch('https://fake-api-tau.vercel.app/api/efood/restaurantes/1')
+    if (!id) return
+    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
       .then((resposta) => resposta.json())
       .then((dados: Restaurante) => {
         setRestaurante(dados)
 
-        if (id) {
+        if (idProduto) {
           const produto = dados.cardapio.find(
-            (item) => item.id.toString() === id
+            (item) => item.id.toString() === idProduto
           )
           setProdutoSelecionado(produto || null)
         } else {
           setProdutoSelecionado(null)
         }
       })
-  }, [id])
+  }, [id, idProduto])
 
   const navigate = useNavigate()
 
-  const abrirModal = (id: number) => {
-    navigate(`/LaDolce/produto/${id}`)
+  const abrirModal = (idDoProduto: number) => {
+    navigate(`/restaurante/${id}/produto/${idDoProduto}`)
   }
   const fecharModal = () => {
-    navigate(`/LaDolce/`)
+    navigate(`/restaurante/${id}`)
   }
   return (
     <>
