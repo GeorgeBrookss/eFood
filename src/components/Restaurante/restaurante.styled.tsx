@@ -21,6 +21,7 @@ export const TituloRestaurante = styled.div`
   margin-right: 8px;
   color: ${Cores.laranja};
 `
+
 export const ItemTitulo = styled.div`
   display: flex;
 `

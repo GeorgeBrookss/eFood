@@ -24,10 +24,11 @@ interface Restaurante {
   titulo: string
   tipo: string
   cardapio: Produto[]
+  capa: string
 }
 
 const LaDolce = () => {
-  const { id, idProduto } = useParams()
+  const { id, idProduto } = useParams<{ id: string; idProduto?: string }>()
   const [restaurante, setRestaurante] = useState<Restaurante | null>(null)
   const [produtoSelecionado, setProdutoSelecionado] = useState<Produto | null>(
     null
@@ -54,20 +55,28 @@ const LaDolce = () => {
   const navigate = useNavigate()
 
   const abrirModal = (idDoProduto: number) => {
-    navigate(`/restaurante/${id}/produto/${idDoProduto}`)
+    if (id) {
+      navigate(`/restaurante/${id}/produto/${idDoProduto}`)
+    }
   }
   const fecharModal = () => {
-    navigate(`/restaurante/${id}`)
+    if (id) {
+      navigate(`/restaurante/${id}`)
+    }
   }
   return (
     <>
       <Header />
-      <DestaqueStyled>
-        <ContainerStyle>
-          <TemaDoRestaurante>{restaurante?.tipo}</TemaDoRestaurante>
-          <NomeDoRestaurante>{restaurante?.titulo}</NomeDoRestaurante>
-        </ContainerStyle>
-      </DestaqueStyled>
+      {restaurante && restaurante.capa ? (
+        <DestaqueStyled capaUrl={restaurante.capa}>
+          <ContainerStyle>
+            <TemaDoRestaurante>{restaurante.tipo}</TemaDoRestaurante>
+            <NomeDoRestaurante>{restaurante.titulo}</NomeDoRestaurante>
+          </ContainerStyle>
+        </DestaqueStyled>
+      ) : (
+        <div>Carregando banner...</div>
+      )}
 
       {restaurante && (
         <PratosList
