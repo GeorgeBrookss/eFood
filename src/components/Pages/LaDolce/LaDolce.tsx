@@ -9,6 +9,7 @@ import {
   TemaDoRestaurante,
   ContainerStyle
 } from './LaDolce.styles'
+import Cart from '../../Cart'
 
 interface Produto {
   id: number
@@ -75,7 +76,7 @@ const LaDolce = () => {
           </ContainerStyle>
         </DestaqueStyled>
       ) : (
-        <div>Carregando banner...</div>
+        <div>Carregando Banner...</div>
       )}
 
       {restaurante && (
@@ -88,6 +89,7 @@ const LaDolce = () => {
       {produtoSelecionado && (
         <ModalProduto onClose={fecharModal} produto={produtoSelecionado} />
       )}
+      <Cart />
     </>
   )
 }

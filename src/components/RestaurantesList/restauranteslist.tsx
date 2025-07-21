@@ -14,14 +14,15 @@ const RestaurantesList = ({ restaurantes, title }: Props) => (
     <ListaStyle>
       {restaurantes.map((restaurante) => (
         <RestauranteProd
-          image={restaurante.image}
+          image={restaurante.foto}
           descricao={restaurante.descricao}
           infos={restaurante.infos}
           title={restaurante.title}
-          redirecionador={restaurante.redirecionador}
+          redirecionador={`/restaurante/${restaurante.id}`}
           key={restaurante.id}
           nota={restaurante.nota}
           imageNota={Estrela}
+          id={restaurante.id}
         />
       ))}
     </ListaStyle>

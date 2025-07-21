@@ -28,6 +28,7 @@ export const ReturnButton = styled.button`
 `
 
 export const CarrinhoStyled = styled.p`
+  cursor: pointer;
   font-weight: 900;
   color: ${Cores.laranja};
   font-size: 18px;
