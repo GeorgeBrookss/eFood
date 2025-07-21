@@ -4,7 +4,8 @@ import {
   Sidebar,
   Quantity,
   CartItem,
-  Preco
+  Preco,
+  TotalInfo
 } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
@@ -48,14 +49,16 @@ const Cart = () => {
             </CartItem>
           ))}
         </ul>
-        <Quantity>{items.length} prato(s) no carrinho</Quantity>
-        <Preco>
-          Total de{' '}
-          {getTotalPrice().toLocaleString('pt-BR', {
-            style: 'currency',
-            currency: 'BRL'
-          })}
-        </Preco>
+        <TotalInfo>
+          <Quantity>valor total</Quantity>
+          <Preco>
+            {' '}
+            {getTotalPrice().toLocaleString('pt-BR', {
+              style: 'currency',
+              currency: 'BRL'
+            })}
+          </Preco>
+        </TotalInfo>
         <AdicionarBtn
           title="Clique aqui para continuar com a entrega"
           type="button"

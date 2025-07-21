@@ -1,3 +1,4 @@
+import { useDispatch } from 'react-redux'
 import Close from '../../assets/images/close.png'
 import {
   BtnCloseModal,
@@ -7,8 +8,9 @@ import {
   ModalContent,
   ModalTexts
 } from './styles'
+import { add, open } from '../../store/reducers/cart'
 
-interface Produto {
+export interface Produto {
   id: number
   nome: string
   descricao: string
@@ -23,6 +25,14 @@ interface ModalProdutoProps {
 }
 
 const ModalProduto = ({ produto, onClose }: ModalProdutoProps) => {
+  const dispatch = useDispatch()
+
+  const AdicionarCart = () => {
+    dispatch(add(produto))
+    dispatch(open())
+    onClose()
+  }
+
   return (
     <ModalContainer onClick={onClose}>
       <ModalClose>
@@ -34,7 +44,7 @@ const ModalProduto = ({ produto, onClose }: ModalProdutoProps) => {
               {produto.descricao} <br /> <br /> {produto.porcao}
             </p>
             <br />
-            <ComprarBtn>
+            <ComprarBtn onClick={AdicionarCart}>
               Adicionar ao carrinho &#45; R$ {produto.preco}
             </ComprarBtn>
           </ModalTexts>

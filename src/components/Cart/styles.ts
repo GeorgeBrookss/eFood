@@ -41,9 +41,10 @@ export const Sidebar = styled.aside`
 
 export const Preco = styled.p`
   font-weight: bold;
+  width: 100%;
   font-size: 14px;
   color: ${Cores.branco};
-  margin-bottom: 24px;
+  width: fit-content;
   span {
     display: block;
     font-size: 12px;
@@ -55,10 +56,9 @@ export const Quantity = styled.p`
   font-weight: bold;
   font-size: 16px;
   color: ${Cores.branco};
-  margin-top: 32px;
-  margin-bottom: 16px;
 `
 export const CartItem = styled.li`
+  background-color: ${Cores.creme};
   display: flex;
   padding: 8px 0;
   margin-bottom: 20px;
@@ -69,20 +69,21 @@ export const CartItem = styled.li`
     width: 80px;
     height: 80px;
     object-fit: cover;
-    margin-right: 24px;
+    margin: 0 8px;
   }
 
   h3 {
-    font-size: 16px;
+    font-size: 18px;
     font-weight: bold;
-    color: ${Cores.branco};
+    color: ${Cores.laranja};
+    margin-bottom: 16px;
   }
 
   span {
     display: block;
     font-size: 14px;
     font-weight: bold;
-    color: ${Cores.branco};
+    color: ${Cores.laranja};
   }
 
   button {
@@ -90,9 +91,17 @@ export const CartItem = styled.li`
     width: 16px;
     height: 16px;
     border: none;
+    margin-top: 76px;
+    margin-right: 8px;
     background-color: transparent;
     position: absolute;
     top: 0;
     right: 0;
   }
+`
+export const TotalInfo = styled.div`
+  display: flex;
+  justify-content: space-between;
+  margin-top: 40px;
+  margin-bottom: 16px;
 `
