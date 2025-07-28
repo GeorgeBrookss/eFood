@@ -33,6 +33,16 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
 
+  h3 {
+    margin-bottom: 16px;
+  }
+  p {
+    font-size: 14px;
+    line-height: 22px;
+    max-width: 344px;
+    width: 100%;
+  }
+
   ${AdicionarBtn} {
     max-width: 100%;
     width: 100%;
@@ -104,4 +114,91 @@ export const TotalInfo = styled.div`
   justify-content: space-between;
   margin-top: 40px;
   margin-bottom: 16px;
+`
+export const CartInfo = styled.div<{ $hidden: boolean }>`
+  display: ${(props) => (props.$hidden ? 'none' : 'block')};
+`
+export const CartContent = styled.div<{ $hidden: boolean }>`
+  display: ${(props) => (props.$hidden ? 'none' : 'block')};
+  color: ${Cores.creme};
+`
+
+export const CartForm = styled.div<{ $show: boolean }>`
+  display: ${(props) => (props.$show ? 'block' : 'none')};
+  color: ${Cores.creme};
+`
+export const CardForm = styled.div<{ $show: boolean }>`
+  display: ${(props) => (props.$show ? 'block' : 'none')};
+  color: ${Cores.creme};
+`
+
+export const CartInfoList = styled.ul`
+  color: ${Cores.creme};
+  display: block;
+  margin-top: 16px;
+  font-weight: bold;
+  div {
+    display: flex;
+    li {
+      margin-right: 20px;
+
+      input {
+        margin-top: 8px;
+        height: 32px;
+        max-width: 155px;
+      }
+    }
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+
+    input {
+      margin-top: 8px;
+      height: 32px;
+      max-width: 344px;
+      border: none;
+      background-color: ${Cores.creme};
+      padding: 8px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
+`
+export const CardInfoList = styled.ul`
+  color: ${Cores.creme};
+  display: block;
+  margin-top: 16px;
+  font-weight: bold;
+  div {
+    display: flex;
+    li {
+      margin-right: 20px;
+
+      input {
+        margin-top: 8px;
+        height: 32px;
+        max-width: 155px;
+      }
+    }
+  }
+
+  li {
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 16px;
+
+    input {
+      margin-top: 8px;
+      height: 32px;
+      max-width: 344px;
+      border: none;
+      background-color: ${Cores.creme};
+      padding: 8px;
+      font-size: 14px;
+      font-weight: bold;
+    }
+  }
 `
