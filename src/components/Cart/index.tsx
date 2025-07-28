@@ -470,6 +470,8 @@ const Cart = () => {
                 title="Clique aqui para continuar com a entrega"
                 type="button"
                 onClick={() => {
+                  handlePaymentSubmit()
+                  setShowConfirmationScreen(false)
                   resetCheckoutState()
                   closeCart()
                 }}
