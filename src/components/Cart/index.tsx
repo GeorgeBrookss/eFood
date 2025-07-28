@@ -18,6 +18,7 @@ import { RootReducer } from '../../store'
 import { close, remove, clearCart } from '../../store/reducers/cart'
 import { AdicionarBtn } from '../Prato/prato.styles'
 import { useState } from 'react'
+import InputMask from 'react-input-mask'
 
 const Cart = () => {
   const { isOpen, items } = useSelector((state: RootReducer) => state.cart)
@@ -67,6 +68,8 @@ const Cart = () => {
     setError(null)
   }
 
+  const cleanedCardNumber = cardNumber.replace(/\D/g, '')
+
   const getTotalPrice = () => {
     return items.reduce((total, item) => total + item.preco, 0)
   }
@@ -97,7 +100,7 @@ const Cart = () => {
       payment: {
         card: {
           name: cardName,
-          number: cardNumber,
+          number: cleanedCardNumber,
           code: parseInt(cvv),
           expires: {
             month: parseInt(expiryMonth),
@@ -226,7 +229,8 @@ const Cart = () => {
                 <div>
                   <li>
                     <label htmlFor="zipCode">CEP</label>
-                    <input
+                    <InputMask
+                      mask="99999-999"
                       id="zipCode"
                       type="text"
                       value={zipCode}
@@ -237,7 +241,8 @@ const Cart = () => {
 
                   <li>
                     <label htmlFor="number">Número</label>
-                    <input
+                    <InputMask
+                      mask="99999"
                       id="number"
                       type="text"
                       value={number}
@@ -262,13 +267,18 @@ const Cart = () => {
                 title="Clique aqui para continuar com a entrega"
                 type="button"
                 onClick={() => {
-                  if (receiver && address && city && zipCode && number) {
-                    setShowDeliveryForm(false)
-                    setShowPaymentForm(true)
-                  } else {
+                  if (!receiver || !address || !city || !zipCode || !number) {
                     alert(
                       'Por favor, preencha todos os campos obrigatórios de entrega.'
                     )
+                    return
+                  }
+                  if (!/^\d{5}-\d{3}$/.test(zipCode)) {
+                    alert('CEP inválido. O mínimo de caracteres é 9')
+                    return
+                  } else {
+                    setShowDeliveryForm(false)
+                    setShowPaymentForm(true)
                   }
                 }}
               >
@@ -315,7 +325,8 @@ const Cart = () => {
               <div>
                 <li>
                   <label htmlFor="cardNumber">Número do cartão</label>
-                  <input
+                  <InputMask
+                    mask="9999 9999 9999 9999"
                     id="cardNumber"
                     type="text"
                     value={cardNumber}
@@ -326,11 +337,38 @@ const Cart = () => {
 
                 <li>
                   <label htmlFor="cvv">CVV</label>
-                  <input
+                  <InputMask
+                    mask="999"
                     id="cvv"
                     type="text"
                     value={cvv}
                     onChange={(e) => setCvv(e.target.value)}
+                    maxLength={4}
+                    required
+                  />
+                </li>
+              </div>
+              <div>
+                <li>
+                  <label htmlFor="expiryMonth">Mês de vencimento</label>
+                  <InputMask
+                    mask="99"
+                    id="expiryMonth"
+                    type="text"
+                    value={expiryMonth}
+                    onChange={(e) => setExpiryMonth(e.target.value)}
+                    required
+                  />
+                </li>
+
+                <li>
+                  <label htmlFor="expiryYear">Ano de vencimento</label>
+                  <InputMask
+                    mask="99"
+                    id="expiryYear"
+                    type="text"
+                    value={expiryYear}
+                    onChange={(e) => setExpiryYear(e.target.value)}
                     maxLength={4}
                     required
                   />
@@ -343,7 +381,48 @@ const Cart = () => {
                 style={{ fontWeight: 'bold' }}
                 title="Clique aqui para continuar com a entrega"
                 type="button"
-                onClick={handlePaymentSubmit}
+                onClick={() => {
+                  if (
+                    !cardName ||
+                    !cardNumber ||
+                    !cvv ||
+                    !expiryMonth ||
+                    !expiryYear
+                  ) {
+                    alert(
+                      'Por favor, preencha todos os campos obrigatórios de entrega.'
+                    )
+                    return
+                  }
+                  if (!/^\d{16}$/.test(cleanedCardNumber)) {
+                    alert(
+                      'Numero do cartão inválido. O mínimo de caracteres é 16'
+                    )
+                    return
+                  }
+                  if (!/^\d{3}$/.test(cvv)) {
+                    alert(
+                      'Código CVV do cartão inválido. O mínimo de caracteres é 3'
+                    )
+                    return
+                  }
+                  if (!/^\d{2}$/.test(expiryMonth)) {
+                    alert(
+                      'O mês de validade do cartão inválido. O mínimo de caracteres é 2'
+                    )
+                    return
+                  }
+                  if (!/^\d{2}$/.test(expiryYear)) {
+                    alert(
+                      'O ano de validade do do cartão inválido. O mínimo de caracteres é 2'
+                    )
+                    return
+                  } else {
+                    setShowDeliveryForm(false)
+                    setShowPaymentForm(false)
+                    setShowConfirmationScreen(true)
+                  }
+                }}
               >
                 Finalizar pagamento
               </AdicionarBtn>
