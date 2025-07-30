@@ -37,7 +37,7 @@ const LaDolce = () => {
 
   useEffect(() => {
     if (!id) return
-    fetch(`https://fake-api-tau.vercel.app/api/efood/restaurantes/${id}`)
+    fetch(`https://ebac-fake-api.vercel.app/api/efood/restaurantes/${id}`)
       .then((resposta) => resposta.json())
       .then((dados: Restaurante) => {
         setRestaurante(dados)

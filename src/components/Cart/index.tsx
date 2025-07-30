@@ -112,7 +112,7 @@ const Cart = () => {
 
     try {
       const response = await fetch(
-        'https://fake-api-tau.vercel.app/api/efood/checkout',
+        'https://ebac-fake-api.vercel.app/api/efood/checkout',
         {
           method: 'POST',
           headers: {
