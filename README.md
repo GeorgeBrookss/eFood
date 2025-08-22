@@ -46,7 +46,7 @@ cd efood
 ```
 3. Instale as dependências:
 ```bash
-git clone <https://github.com/GeorgeBrookss/eFood>
+npm install
 ```
 4. Inicie a aplicação:
 ```bash
