@@ -1,46 +1,55 @@
-# Getting Started with Create React App
+# E-Food - E-commerce de Delivery
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Descrição do Projeto
+E-Food é uma plataforma de e-commerce para delivery de alimentos, desenvolvida como projeto final do curso de Engenheiro Front-End na EBAC. A aplicação é um front-end dinâmico que se integra a um back-end para exibir uma lista de restaurantes, seus respectivos cardápios e processar pedidos.
 
-## Available Scripts
+Este projeto foi fundamental para aplicar e aprofundar conhecimentos em:
 
-In the project directory, you can run:
+- **Desenvolvimento Frontend Robusto:** Construção de uma aplicação completa, desde a listagem de restaurantes até o fluxo de checkout e confirmação de pedido.
+- **Consumo de APIs:** Integração fluida com um back-end para carregar dados de restaurantes, menus e enviar informações de pedidos via requisições GET e POST.
+- **Gerenciamento de Estado:** Utilização do Redux Toolkit para gerenciar o estado global da aplicação, especialmente o carrinho de compras e os dados do pedido.
+- **Componentização e Reusabilidade:** Organização do código em componentes reutilizáveis, como cartões de restaurante e itens do cardápio.
+- **Validação de Formulários:** Implementação de validações robustas com Formik e Yup para garantir a integridade dos dados no processo de checkout, proporcionando uma experiência de usuário segura e eficiente.
+- **Tipagem Estática:** Uso de TypeScript para adicionar segurança e eficiência ao código, prevenindo erros comuns durante o desenvolvimento.
+- **Estilização Modular:** Aplicação do Styled Components para uma estilização elegante e modular dos componentes.
+- **Boas Práticas de Código:** Manutenção de um código limpo e padronizado com ESLint e Prettier.
 
-### `npm start`
+## Tecnologias Utilizadas
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+- **Linguagem de Programação:** TypeScript
+- **Framework/Biblioteca:** React
+- **Gerenciamento de Estado:** Redux & Redux Toolkit (RTK Query)
+- **Requisições HTTP:** Consumo de APIs
+- **Roteamento:** React Router DOM
+- **Estilização:** Styled Components
+- **Validação de Formulários:** Formik e Yup
+- **Formatação de Inputs:** InputMask
+- **Análise de Código:** ESLint e Prettier
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## Funcionalidades Principais
 
-### `npm test`
+- **Página Inicial:** Lista dinâmica de restaurantes, que se atualiza automaticamente ao carregar novos dados do back-end.
+- **Página do Restaurante:** Exibe o cardápio completo do estabelecimento.
+- **Carrinho de Compras:** Adiciona e remove pratos, exibe o total e a quantidade de itens.
+- **Checkout:** Formulário de pagamento com validação para simular a conclusão da compra.
+- **Confirmação de Pedido:** Tela de sucesso com o ID do pedido após a conclusão da compra.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+## Como Rodar o Projeto
 
-### `npm run build`
-
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
-
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
-
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
+1. Clone este repositório:
+```bash
+git clone <https://github.com/GeorgeBrookss/eFood>
+```
+2. Navegue até o diretório do projeto:
+```bash
+cd efood
+```
+3. Instale as dependências:
+```bash
+git clone <https://github.com/GeorgeBrookss/eFood>
+```
+4. Inicie a aplicação:
+```bash
+npm start
+```
+A aplicação será iniciada em http://localhost:3000
