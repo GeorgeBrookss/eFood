@@ -11,7 +11,7 @@ export const PratosListaStyle = styled.ul`
   justify-self: center;
   list-style: none;
   margin-top: 128px;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     grid-template-columns: 1fr;
     width: 300px;
   }

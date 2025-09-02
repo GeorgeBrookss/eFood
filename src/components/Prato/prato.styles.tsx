@@ -23,7 +23,7 @@ export const AdicionarBtn = styled.button`
   cursor: pointer;
   padding: 6px 4px;
   font-size: 14px;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     width: 280px;
     font-size: 18px;
     height: 34px;

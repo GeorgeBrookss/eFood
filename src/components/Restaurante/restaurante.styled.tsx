@@ -7,7 +7,7 @@ export const RestauranteItem = styled.li`
   max-width: 472px;
   position: relative;
 
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     width: 300px;
     margin: 0 auto;
     height: 400px;
@@ -16,7 +16,7 @@ export const RestauranteItem = styled.li`
 export const ImgRestaurante = styled.img`
   min-width: 472px;
   object-fit: cover;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     min-width: 300px;
   }
   @media (min-width: 768px) and (max-width: 1023px) {
@@ -53,13 +53,14 @@ export const RestauranteButton = styled(Link)`
 
 export const Estrela = styled.img`
   margin-left: 8px;
+  max-width: 20px;
 `
 export const ItemBorder = styled.div`
   border: 1px solid ${Cores.laranja};
   border-top: none;
   height: 171px;
   background-color: ${Cores.branco};
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     height: fit-content;
     padding-bottom: 20px;
   }

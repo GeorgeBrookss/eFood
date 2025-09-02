@@ -24,7 +24,7 @@ export const TextoInicial = styled.h1`
   color: ${Cores.laranja};
   font-weight: 900;
   font-size: 36px;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     font-size: 25px;
   }
 `

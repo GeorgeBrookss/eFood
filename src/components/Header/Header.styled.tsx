@@ -28,7 +28,7 @@ export const ReturnButton = styled.button`
   color: ${Cores.laranja};
   margin-left: 20px;
   margin-right: 10px;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     margin-left: 20px;
     margin-right: 10px;
     font-size: 17px;
@@ -42,13 +42,13 @@ export const CarrinhoStyled = styled.p`
   font-size: 18px;
   margin-right: 20px;
 
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     display: none;
   }
 `
 export const CarrinhoMobile = styled.div`
   display: none;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     display: flex;
     background-image: url(${CartMob});
     min-width: 40px;
@@ -59,7 +59,7 @@ export const CarrinhoMobile = styled.div`
   }
 `
 export const Logo = styled.img`
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     width: 100px;
   }
 `

@@ -28,7 +28,7 @@ export const TextFooter = styled.p`
   font-size: 10px;
   width: 480px;
   margin: 80px auto;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     width: 300px;
   }
 `

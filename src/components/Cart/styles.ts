@@ -39,7 +39,7 @@ export const Sidebar = styled.aside`
   max-width: 360px;
   width: 100%;
 
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     width: 70%;
   }
 
@@ -97,7 +97,7 @@ export const CartItem = styled.li`
     font-weight: bold;
     color: ${Cores.laranja};
     margin-bottom: 16px;
-    @media (min-width: 320px) and (max-width: 425px) {
+    @media (min-width: 320px) and (max-width: 767px) {
       font-size: 10px;
     }
   }
@@ -150,7 +150,7 @@ export const CartInfoList = styled.ul`
   display: block;
   margin-top: 16px;
   font-weight: bold;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     font-size: 14px;
   }
   div {
@@ -162,7 +162,7 @@ export const CartInfoList = styled.ul`
         margin-top: 8px;
         height: 32px;
         max-width: 155px;
-        @media (min-width: 320px) and (max-width: 425px) {
+        @media (min-width: 320px) and (max-width: 767px) {
           height: 22px;
         }
       }
@@ -183,7 +183,7 @@ export const CartInfoList = styled.ul`
       padding: 8px;
       font-size: 14px;
       font-weight: bold;
-      @media (min-width: 320px) and (max-width: 425px) {
+      @media (min-width: 320px) and (max-width: 767px) {
         height: 22px;
       }
     }
@@ -199,7 +199,7 @@ export const AdicionarBtnCart = styled.button`
   cursor: pointer;
   padding: 6px 4px;
   font-size: 14px;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     width: 200px;
     font-size: 18px;
     height: 54px;
@@ -215,7 +215,7 @@ export const FinalBtnForm = styled.button`
   text-decoration: none;
   cursor: pointer;
   padding: 6px 4px;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     width: 200px;
     font-size: 10px;
     height: 24px;
@@ -224,7 +224,7 @@ export const FinalBtnForm = styled.button`
 
 export const DivForm = styled.div`
   display: flex;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     flex-direction: column;
   }
 `

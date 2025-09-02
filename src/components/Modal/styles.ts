@@ -32,7 +32,7 @@ export const ModalContent = styled.div`
   align-items: center;
   background-color: rgba(230, 103, 103, 1);
   position: relative;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     width: 300px;
     display: block;
     height: 620px;
@@ -67,7 +67,7 @@ export const BtnCloseModal = styled.button`
   border: none;
   cursor: pointer;
   left: 90%;
-  @media (min-width: 320px) and (max-width: 425px) {
+  @media (min-width: 320px) and (max-width: 767px) {
     left: 50%;
   }
 `
