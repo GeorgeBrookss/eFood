@@ -45,6 +45,19 @@ export const ModalContent = styled.div`
       margin-bottom: 32px;
     }
   }
+  @media (min-width: 767px) and (max-width: 1023px) {
+    width: 600px;
+    display: flex;
+    height: 320px;
+    img {
+      max-width: 180px;
+      max-height: 180px;
+      margin-left: 22px;
+      margin-right: 0;
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+  }
 `
 export const BtnCloseModal = styled.button`
   top: 0;

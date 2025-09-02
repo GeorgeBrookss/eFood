@@ -19,6 +19,9 @@ export const ImgRestaurante = styled.img`
   @media (min-width: 320px) and (max-width: 425px) {
     min-width: 300px;
   }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    min-width: 100%;
+  }
 `
 
 export const TituloRestaurante = styled.div`
@@ -59,6 +62,10 @@ export const ItemBorder = styled.div`
   @media (min-width: 320px) and (max-width: 425px) {
     height: fit-content;
     padding-bottom: 20px;
+  }
+  @media (min-width: 768px) and (max-width: 1023px) {
+    margin-bottom: 40px;
+    height: 250px;
   }
 `
 

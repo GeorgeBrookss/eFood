@@ -19,6 +19,10 @@ export const PratosListaStyle = styled.ul`
     grid-template-columns: 1fr 1fr;
     width: 300px;
   }
+  @media (min-width: 1024px) and (max-width: 1280px) {
+    grid-template-columns: 1fr 1fr 1fr;
+    max-width: 200px;
+  }
 
   img {
     max-width: 304px;

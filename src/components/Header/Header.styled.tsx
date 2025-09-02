@@ -26,6 +26,8 @@ export const ReturnButton = styled.button`
   cursor: pointer;
   font-weight: 900;
   color: ${Cores.laranja};
+  margin-left: 20px;
+  margin-right: 10px;
   @media (min-width: 320px) and (max-width: 425px) {
     margin-left: 20px;
     margin-right: 10px;
@@ -38,6 +40,7 @@ export const CarrinhoStyled = styled.p`
   font-weight: 900;
   color: ${Cores.laranja};
   font-size: 18px;
+  margin-right: 20px;
 
   @media (min-width: 320px) and (max-width: 425px) {
     display: none;
