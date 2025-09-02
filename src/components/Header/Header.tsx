@@ -1,5 +1,12 @@
 import { Link } from 'react-router-dom'
-import { NavStyled, Menu, ReturnButton, CarrinhoStyled } from './Header.styled'
+import {
+  NavStyled,
+  Menu,
+  ReturnButton,
+  CarrinhoStyled,
+  CarrinhoMobile,
+  Logo
+} from './Header.styled'
 import logo from '../../assets/images/logo.png'
 import { open } from '../../store/reducers/cart'
 import { useDispatch, useSelector } from 'react-redux'
@@ -24,10 +31,11 @@ const Header = () => {
             </li>
             <li>
               <Link to="/">
-                <img src={logo} alt="Logo"></img>
+                <Logo src={logo} alt="Logo"></Logo>
               </Link>
             </li>
             <li>
+              <CarrinhoMobile onClick={openCart} />
               <CarrinhoStyled onClick={openCart}>
                 {items.length} produto(s) no carrinho
               </CarrinhoStyled>

@@ -26,12 +26,22 @@ export const CartContainer = styled.div`
     display: flex;
   }
 `
+export const CloseX = styled.p`
+  color: aliceblue;
+  width: 500px;
+  cursor: pointer;
+`
+
 export const Sidebar = styled.aside`
   background-color: ${Cores.laranja};
   z-index: 1;
   padding: 40px 16px 0 16px;
   max-width: 360px;
   width: 100%;
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    width: 70%;
+  }
 
   h3 {
     margin-bottom: 16px;
@@ -87,6 +97,9 @@ export const CartItem = styled.li`
     font-weight: bold;
     color: ${Cores.laranja};
     margin-bottom: 16px;
+    @media (min-width: 320px) and (max-width: 425px) {
+      font-size: 10px;
+    }
   }
 
   span {
@@ -137,6 +150,9 @@ export const CartInfoList = styled.ul`
   display: block;
   margin-top: 16px;
   font-weight: bold;
+  @media (min-width: 320px) and (max-width: 425px) {
+    font-size: 14px;
+  }
   div {
     display: flex;
     li {
@@ -146,6 +162,9 @@ export const CartInfoList = styled.ul`
         margin-top: 8px;
         height: 32px;
         max-width: 155px;
+        @media (min-width: 320px) and (max-width: 425px) {
+          height: 22px;
+        }
       }
     }
   }
@@ -164,9 +183,52 @@ export const CartInfoList = styled.ul`
       padding: 8px;
       font-size: 14px;
       font-weight: bold;
+      @media (min-width: 320px) and (max-width: 425px) {
+        height: 22px;
+      }
     }
   }
 `
+export const AdicionarBtnCart = styled.button`
+  background-color: ${Cores.creme};
+  color: ${Cores.laranja};
+  border: none;
+  width: 304px;
+  height: 24px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 6px 4px;
+  font-size: 14px;
+  @media (min-width: 320px) and (max-width: 425px) {
+    width: 200px;
+    font-size: 18px;
+    height: 54px;
+  }
+`
+export const FinalBtnForm = styled.button`
+  background-color: ${Cores.creme};
+  color: ${Cores.laranja};
+  border: none;
+  width: 304px;
+  height: 34px;
+  font-size: 20px;
+  text-decoration: none;
+  cursor: pointer;
+  padding: 6px 4px;
+  @media (min-width: 320px) and (max-width: 425px) {
+    width: 200px;
+    font-size: 10px;
+    height: 24px;
+  }
+`
+
+export const DivForm = styled.div`
+  display: flex;
+  @media (min-width: 320px) and (max-width: 425px) {
+    flex-direction: column;
+  }
+`
+
 export const CardInfoList = styled.ul`
   color: ${Cores.creme};
   display: block;

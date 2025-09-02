@@ -9,6 +9,10 @@ export const ListaStyle = styled.ul`
   justify-self: center;
   list-style: none;
   margin-top: 128px;
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    grid-template-columns: 1fr;
+  }
 `
 export const ItemStyle = styled.li`
   width: 100%;

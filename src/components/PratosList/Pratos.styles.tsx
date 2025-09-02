@@ -11,6 +11,14 @@ export const PratosListaStyle = styled.ul`
   justify-self: center;
   list-style: none;
   margin-top: 128px;
+  @media (min-width: 320px) and (max-width: 425px) {
+    grid-template-columns: 1fr;
+    width: 300px;
+  }
+  @media (min-width: 767px) and (max-width: 1023px) {
+    grid-template-columns: 1fr 1fr;
+    width: 300px;
+  }
 
   img {
     max-width: 304px;

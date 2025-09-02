@@ -11,12 +11,15 @@ import {
   CartInfoList,
   CardInfoList,
   CardForm,
-  CartContent
+  CartContent,
+  CloseX,
+  AdicionarBtnCart,
+  DivForm,
+  FinalBtnForm
 } from './styles'
 import { useDispatch, useSelector } from 'react-redux'
 import { RootReducer } from '../../store'
 import { close, remove, clearCart } from '../../store/reducers/cart'
-import { AdicionarBtn } from '../Prato/prato.styles'
 import { useState } from 'react'
 import InputMask from 'react-input-mask'
 
@@ -143,6 +146,8 @@ const Cart = () => {
     <CartContainer className={isOpen ? 'is-open' : ''}>
       <Overlay onClick={closeCart} />
       <Sidebar>
+        <CloseX onClick={closeCart}>X</CloseX>
+
         <CartInfo $hidden={!showCartContent}>
           <ul>
             {items.map((item) => (
@@ -171,7 +176,7 @@ const Cart = () => {
               })}
             </Preco>
           </TotalInfo>
-          <AdicionarBtn
+          <AdicionarBtnCart
             title="Clique aqui para continuar com a entrega"
             type="button"
             onClick={() => {
@@ -186,7 +191,7 @@ const Cart = () => {
             }}
           >
             Continuar com a entrega
-          </AdicionarBtn>
+          </AdicionarBtnCart>
         </CartInfo>
         <CartContent $hidden={!showDeliveryForm}>
           <CartForm $show={true}>
@@ -226,7 +231,7 @@ const Cart = () => {
                   />
                 </li>
 
-                <div>
+                <DivForm>
                   <li>
                     <label htmlFor="zipCode">CEP</label>
                     <InputMask
@@ -250,7 +255,7 @@ const Cart = () => {
                       required
                     />
                   </li>
-                </div>
+                </DivForm>
 
                 <li>
                   <label htmlFor="complement">Complemento (Opcional)</label>
@@ -262,7 +267,7 @@ const Cart = () => {
                   />
                 </li>
               </CartInfoList>
-              <AdicionarBtn
+              <FinalBtnForm
                 style={{ fontWeight: 'bold' }}
                 title="Clique aqui para continuar com a entrega"
                 type="button"
@@ -283,8 +288,8 @@ const Cart = () => {
                 }}
               >
                 Continuar com o pagamento
-              </AdicionarBtn>
-              <AdicionarBtn
+              </FinalBtnForm>
+              <FinalBtnForm
                 style={{ marginTop: '12px', fontWeight: 'bold' }}
                 title="Clique aqui para continuar com a entrega"
                 type="button"
@@ -294,7 +299,7 @@ const Cart = () => {
                 }}
               >
                 Voltar para o carrinho
-              </AdicionarBtn>
+              </FinalBtnForm>
             </div>
           </CartForm>
         </CartContent>
@@ -322,7 +327,7 @@ const Cart = () => {
                 />
               </li>
 
-              <div>
+              <DivForm>
                 <li>
                   <label htmlFor="cardNumber">Número do cartão</label>
                   <InputMask
@@ -347,8 +352,8 @@ const Cart = () => {
                     required
                   />
                 </li>
-              </div>
-              <div>
+              </DivForm>
+              <DivForm>
                 <li>
                   <label htmlFor="expiryMonth">Mês de vencimento</label>
                   <InputMask
@@ -373,11 +378,11 @@ const Cart = () => {
                     required
                   />
                 </li>
-              </div>
+              </DivForm>
               {error && (
                 <p style={{ color: 'red', marginBottom: '16px' }}>{error}</p>
               )}
-              <AdicionarBtn
+              <FinalBtnForm
                 style={{ fontWeight: 'bold' }}
                 title="Clique aqui para continuar com a entrega"
                 type="button"
@@ -425,8 +430,8 @@ const Cart = () => {
                 }}
               >
                 Finalizar pagamento
-              </AdicionarBtn>
-              <AdicionarBtn
+              </FinalBtnForm>
+              <FinalBtnForm
                 style={{ marginTop: '12px', fontWeight: 'bold' }}
                 title="Clique aqui para continuar com a entrega"
                 type="button"
@@ -436,7 +441,7 @@ const Cart = () => {
                 }}
               >
                 Voltar para o edição de endereço
-              </AdicionarBtn>
+              </FinalBtnForm>
             </CardInfoList>
           </CardForm>
         </CartInfo>
@@ -465,7 +470,7 @@ const Cart = () => {
                 gastronômica. Bom apetite!
               </p>
               <br />
-              <AdicionarBtn
+              <AdicionarBtnCart
                 style={{ fontWeight: 'bold' }}
                 title="Clique aqui para continuar com a entrega"
                 type="button"
@@ -477,7 +482,7 @@ const Cart = () => {
                 }}
               >
                 Concluir
-              </AdicionarBtn>
+              </AdicionarBtnCart>
             </CardInfoList>
           </CardForm>
         </CartInfo>

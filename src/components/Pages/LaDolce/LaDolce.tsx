@@ -1,6 +1,6 @@
 import { useNavigate, useParams } from 'react-router-dom'
 import { useEffect, useState } from 'react'
-import ModalProduto from '../../Modal'
+import ModalProduto from '../../Modal/Modal'
 import PratosList from '../../PratosList/Pratos'
 import Header from '../../Header/Header'
 import {
@@ -9,7 +9,7 @@ import {
   TemaDoRestaurante,
   ContainerStyle
 } from './LaDolce.styles'
-import Cart from '../../Cart'
+import Cart from '../../Cart/Cart'
 
 interface Produto {
   id: number

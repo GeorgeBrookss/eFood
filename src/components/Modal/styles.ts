@@ -32,6 +32,19 @@ export const ModalContent = styled.div`
   align-items: center;
   background-color: rgba(230, 103, 103, 1);
   position: relative;
+  @media (min-width: 320px) and (max-width: 425px) {
+    width: 300px;
+    display: block;
+    height: 620px;
+    img {
+      max-width: 180px;
+      max-height: 180px;
+      margin-left: 22px;
+      margin-right: 0;
+      margin-top: 32px;
+      margin-bottom: 32px;
+    }
+  }
 `
 export const BtnCloseModal = styled.button`
   top: 0;
@@ -41,6 +54,9 @@ export const BtnCloseModal = styled.button`
   border: none;
   cursor: pointer;
   left: 90%;
+  @media (min-width: 320px) and (max-width: 425px) {
+    left: 50%;
+  }
 `
 
 export const ModalTexts = styled.div`

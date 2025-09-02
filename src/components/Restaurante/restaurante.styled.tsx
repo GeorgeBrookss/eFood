@@ -6,10 +6,19 @@ export const RestauranteItem = styled.li`
   width: 100%;
   max-width: 472px;
   position: relative;
+
+  @media (min-width: 320px) and (max-width: 425px) {
+    width: 300px;
+    margin: 0 auto;
+    height: 400px;
+  }
 `
 export const ImgRestaurante = styled.img`
   min-width: 472px;
   object-fit: cover;
+  @media (min-width: 320px) and (max-width: 425px) {
+    min-width: 300px;
+  }
 `
 
 export const TituloRestaurante = styled.div`
@@ -47,6 +56,10 @@ export const ItemBorder = styled.div`
   border-top: none;
   height: 171px;
   background-color: ${Cores.branco};
+  @media (min-width: 320px) and (max-width: 425px) {
+    height: fit-content;
+    padding-bottom: 20px;
+  }
 `
 
 export const Descricao = styled.p`
