@@ -25,7 +25,7 @@ const api = createApi({
     baseUrl: 'https://api-ebac.vercel.app/api/efood/'
   }),
   endpoints: (builder) => ({
-    etRestaurantes: builder.query<Restaurante[], void>({
+    getRestaurantes: builder.query<Restaurante[], void>({
       query: () => 'restaurantes',
       transformResponse: (rawResult: ApiRestauranteResponse[]) => {
         return rawResult.map((item) => ({
