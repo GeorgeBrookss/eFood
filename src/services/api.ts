@@ -30,7 +30,7 @@ const api = createApi({
           foto: item.capa,
           infos: [item.tipo],
           nota: item.avaliacao,
-          redirecionador: `/restaurante/${item.id}`
+          redirecionador: `/restaurantes/${item.id}`
         }))
       }
     }),
@@ -45,7 +45,7 @@ const api = createApi({
         foto: rawResult.capa,
         infos: [rawResult.tipo],
         nota: rawResult.avaliacao,
-        redirecionador: `/restaurante/${rawResult.id}`
+        redirecionador: `/restaurantes/${rawResult.id}`
       })
     }),
     getPratos: builder.query<PratosMold[], string>({
