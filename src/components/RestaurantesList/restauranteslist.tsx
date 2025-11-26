@@ -18,7 +18,7 @@ const RestaurantesList = ({ restaurantes, title }: Props) => (
           descricao={restaurante.descricao}
           infos={restaurante.infos}
           title={restaurante.title}
-          redirecionador={`/restaurante/${restaurante.id}`}
+          redirecionador={`/restaurantes/${restaurante.id}`}
           key={restaurante.id}
           nota={restaurante.nota}
           imageNota={Estrela}
