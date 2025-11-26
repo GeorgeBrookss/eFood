@@ -1,7 +1,6 @@
 import { createApi, fetchBaseQuery } from '@reduxjs/toolkit/query/react'
 import { RestauranteListItem as Restaurante } from '../components/Pages/Home/Home'
 import PratosMold from '../models/PratosMold'
-
 interface ApiRestauranteResponse {
   id: number
   titulo: string
@@ -19,7 +18,6 @@ interface ApiRestauranteResponse {
     porcao: string
   }[]
 }
-
 const api = createApi({
   baseQuery: fetchBaseQuery({
     baseUrl: 'https://api-ebac.vercel.app/api/efood/'
@@ -79,11 +77,9 @@ const api = createApi({
     })
   })
 })
-
 export const {
   useGetPratosQuery,
   useGetRestauranteQuery,
   useGetRestaurantesQuery
 } = api
-
 export default api
