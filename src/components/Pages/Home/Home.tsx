@@ -1,9 +1,15 @@
+import { ReactNode } from 'react'
 import Banner from '../../Banner/banner'
 import RestaurantesList from '../../RestaurantesList/restauranteslist'
 import { ContainerStyle } from './style'
 import { useGetRestaurantesQuery } from '../../../services/api'
+import PratosMold from '../../../models/PratosMold'
 
 export interface RestauranteListItem {
+  capa: string | undefined
+  tipo: ReactNode
+  titulo: ReactNode
+  cardapio: PratosMold[]
   id: number
   title: string
   preco: number
@@ -17,6 +23,7 @@ export interface RestauranteListItem {
 
 const Home = () => {
   const { data: restaurantes, isLoading, isError } = useGetRestaurantesQuery()
+
   if (isLoading) {
     return <h4>Carregando...</h4>
   }
@@ -24,6 +31,7 @@ const Home = () => {
   if (isError || !restaurantes) {
     return <h4>Erro ao carregar os restaurantes.</h4>
   }
+
   if (restaurantes) {
     return (
       <>

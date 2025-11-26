@@ -41,7 +41,17 @@ const api = createApi({
           nome: item.titulo,
           infos: [item.tipo],
           preco: 0,
-          redirecionador: `/restaurantes/${item.id}`
+          redirecionador: `/restaurantes/${item.id}`,
+          capa: item.capa,
+          imagem: item.capa,
+          cardapio: item.cardapio.map((prato) => ({
+            id: prato.id,
+            nome: prato.nome,
+            descricao: prato.descricao,
+            foto: prato.foto,
+            preco: prato.preco,
+            porcao: prato.porcao || 'Porção padrão'
+          }))
         }))
       }
     }),
@@ -62,6 +72,7 @@ const api = createApi({
         infos: [rawResult.tipo],
         preco: 0,
         redirecionador: `/restaurantes/${rawResult.id}`,
+        imagem: rawResult.capa,
         cardapio: rawResult.cardapio
       })
     }),
@@ -74,8 +85,31 @@ const api = createApi({
           descricao: item.descricao,
           foto: item.foto,
           preco: item.preco,
-          porcao: item.porcao
+          porcao: item.porcao || 'Porção padrão',
+          imagem: item.foto
         }))
+      }
+    }),
+    getProduto: builder.query<PratosMold, { id: string; idProduto: string }>({
+      query: (args) => `restaurantes/${args.id}`,
+      transformResponse: (rawResult: ApiRestauranteResponse, meta, arg) => {
+        const produtoAchado = rawResult.cardapio.find(
+          (item) => item.id === Number(arg.idProduto)
+        )
+
+        if (produtoAchado) {
+          return {
+            id: produtoAchado.id,
+            nome: produtoAchado.nome,
+            descricao: produtoAchado.descricao,
+            foto: produtoAchado.foto,
+            preco: produtoAchado.preco,
+            porcao: produtoAchado.porcao || 'Porção padrão',
+            imagem: produtoAchado.foto
+          }
+        } else {
+          throw new Error('Produto não encontrado neste restaurante')
+        }
       }
     })
   })
@@ -84,7 +118,8 @@ const api = createApi({
 export const {
   useGetPratosQuery,
   useGetRestauranteQuery,
-  useGetRestaurantesQuery
+  useGetRestaurantesQuery,
+  useGetProdutoQuery
 } = api
 
 export default api
