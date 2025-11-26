@@ -35,10 +35,10 @@ const api = createApi({
           tipo: item.tipo,
           avaliacao: item.avaliacao,
           descricao: item.descricao,
+          foto: item.capa,
           nota: item.avaliacao,
           nome: item.titulo,
-          foto: item.capa, // Corrigido (removido a duplicata)
-          infos: [item.tipo], 
+          infos: [item.tipo],
           preco: 0,
           redirecionador: `/restaurantes/${item.id}`
         }))
@@ -56,7 +56,7 @@ const api = createApi({
         capa: rawResult.capa,
         nota: rawResult.avaliacao,
         nome: rawResult.titulo,
-        foto: rawResult.capa, 
+        foto: rawResult.capa,
         infos: [rawResult.tipo],
         preco: 0,
         redirecionador: `/restaurantes/${rawResult.id}`,
@@ -66,13 +66,13 @@ const api = createApi({
     getPratos: builder.query<PratosMold[], string>({
       query: (restauranteId) => `restaurantes/${restauranteId}`,
       transformResponse: (rawResult: ApiRestauranteResponse) => {
-        return rawResult.cardapio.map(item => ({
-            id: item.id,
-            nome: item.nome,
-            descricao: item.descricao,
-            foto: item.foto,
-            preco: item.preco,
-            porcao: item.porcao
+        return rawResult.cardapio.map((item) => ({
+          id: item.id,
+          nome: item.nome,
+          descricao: item.descricao,
+          foto: item.foto,
+          preco: item.preco,
+          porcao: item.porcao
         }))
       }
     })
